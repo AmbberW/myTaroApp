@@ -1,0 +1,80 @@
+.container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+.content{
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    background-color: bisque;
+    margin-top:20%;
+    background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic205.nipic.com%2Ffile%2F20190201%2F26977562_162315168000_2.jpg&refer=http%3A%2F%2Fpic205.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619146146&t=9271f24b197519e503c3accbba2f9578);
+    background-size: 100% 100%;
+    position: relative;
+}
+.title{
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+.subtitle{
+    text-align: center;
+    font-size: 24px;
+    color: #555;
+}
+.box{
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    top:50%;
+    transform: translateY(-50%);
+    left:20px;
+    display: flex;
+    /* border: 2px green solid; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.item{
+    width: 30%;
+    margin-top: 3%;
+    /* background:#ccc; */
+}
+.itemborder{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.borderanimation{
+    border: 8px solid;
+    animation: glow 800ms ease-out infinite alternate;
+}
+.itemcontent{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.contentbtn{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: tomato;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes glow {
+    0% {
+        border-color: #393;
+        box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 1px 0 #393;
+    }
+    100% {
+        border-color: #6f6;
+        box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4), 0 1px 0 #6f6;
+    }
+}
