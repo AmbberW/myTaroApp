@@ -18,5 +18,8 @@ export default {
       msg: "Hello world!cccccc",
     };
   },
+  created() {
+    console.log("sjkghdjghs");
+  },
 };
 </script>
