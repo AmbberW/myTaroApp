@@ -82,6 +82,7 @@ export default {
   },
   mounted() {
     console.log(lotteryJson);
+    console.log("aaaaa");
   },
   methods: {
     dealAnimationList() {
