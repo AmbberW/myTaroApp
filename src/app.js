@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import './app.scss'
-
 const App = {
-  onShow (options) {
+  onShow(options) {
   },
   render(h) {
     // this.$slots.default 是将要会渲染的页面
