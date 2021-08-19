@@ -39,8 +39,9 @@
     "@tarojs/components": "3.1.4",
     "@tarojs/runtime": "3.1.4",
     "@tarojs/taro": "3.1.4",
-    "vue-template-compiler": "^2.5.0",
-    "vue": "^2.5.0"
+    "clipboard": "^2.0.8",
+    "vue": "^2.5.0",
+    "vue-template-compiler": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

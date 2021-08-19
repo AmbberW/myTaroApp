@@ -8,7 +8,7 @@ const config = {
     828: 1.81 / 2
   },
   sourceRoot: 'src',
-  outputRoot: 'dist',
+  outputRoot: `dist/${process.env.TARO_ENV}`,
   plugins: [],
   defineConstants: {
   },
@@ -58,7 +58,8 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    }
+    },
+    esnextModules: ['taro-ui']
   }
 }
 

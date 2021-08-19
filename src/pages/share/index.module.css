@@ -1,0 +1,116 @@
+.share{
+    background-color: #FE5238;
+    background-image: url("https://img.58cdn.com.cn/git/tcb/mini-img/bluecollar/1.1/activity_bg_new.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    padding-bottom: 60rpx; 
+    height: 100%;
+}
+.shareContent{
+    width:690px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+}
+.shareTitle{
+    text-align: center;
+    font-size: 40px;
+}
+.shareSubTitle{
+    text-align: center;
+    font-size: 28px;
+}
+.bannerImg{
+    width: 650px;
+    height: 310px;
+    margin: 0 auto;
+    background-image: url("https://img.58cdn.com.cn/git/tcb/mini-img/bluecollar/1.1/share_process_new.png");
+    background-size: 100% 100%;  
+}
+.shareList{
+    width:650px;
+    margin:0 auto;
+    /* background-color:rgba(255,255,255); */
+}
+.listItem{
+    margin-top:14px;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    position: relative;
+}
+.itemIcon{
+    width: 166px;
+    height: 166px;
+}
+.iconImage{
+    width: 140px;
+    height: 140px;
+    margin:13px 13px 0 13px;
+    border-radius: 10px;
+}
+.itemcontent{
+    flex:1;
+    margin:0 10px;
+    padding:8px 0;
+}
+.itemcontent .name{
+    font-size:32px;
+    width:320px;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.itemcontent .subName{
+    font-size: 30px;
+   color: #FA4C4C;
+   white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.itemcontent .label{
+    margin-top:5px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 34px;
+    width: 400px;
+    overflow: hidden;
+}
+.itemcontent .labelItem{
+    flex-shrink: 0;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 10px;
+    font-size: 22px;
+    color: #555555;
+    background: #F6F7F8;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+.itemcontent .text{
+    margin-top: 6px;
+    width: 402px;
+    font-size:24px;
+    color:#555;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all; 
+}
+taro-button-core[type=warn],.itemShare{
+    margin: 0;
+    padding: 0;
+    border: 0px !important;  
+    position: absolute;
+    top:10px;
+    right: 16px;
+    width: 150px;
+    height: 60px;
+    line-height: 60px;
+    /* vertical-align: middle; */
+    border-radius: 8px;
+    background-color: #FA4C4C;
+    font-size:26px;
+    text-align: center;
+    color: #fff;
+}

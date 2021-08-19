@@ -1,0 +1,134 @@
+.signIn{
+    text-align: center;
+}
+.title{
+    font-size: 40px;
+}
+.subTitle{
+    font-size: 24px;
+    color:#aaa;
+}
+.day{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+.day .dayNum{
+    font-size:48px;
+    color:#FA4C4C;
+    height: 50px;
+    line-height: 50px;
+}
+.day .dayUnit{
+    font-size:24px;
+    height: 50px;
+    line-height: 50px;
+    margin-left:10px;
+}
+.subscribe{
+    font-size:28px;
+    color:#555;
+}
+.container{
+    
+    width: fit-content;
+    margin: 0px auto;
+}
+.travel{
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+.travel:nth-child(2n){
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+.travel:nth-child(2n+3){
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.travelFirst,.travelItem{
+    position: relative;
+    display: flex;
+    
+}
+.line{
+    width: 40px;
+    height: 4px;
+    margin:0px 4px;
+    background-color: #FA4C4C;
+    position: relative;
+    top: 28px;
+}
+.itemcenter{
+    width:60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    font-size: 20px;
+    background-color: #FA4C4C;
+    color: #fff;
+}
+.itemcenter.unactive{
+    background-color: #eee;
+    color: #555;
+}
+.line.unactive{
+    background-color: #eee;
+}
+.travel:nth-child(2n+1) .itemtext{
+    font-size: 24px;
+    position: absolute;
+    top:70px;
+    right:10%;
+}
+.travel:nth-child(2n) .itemtext{
+    font-size: 24px;
+    position: absolute;
+    top:70px;
+    left:10%;
+}
+.concatItemRight::after{
+    content:'';
+    display: block;
+    position: relative;
+    width: 4px;
+    height: 110px;
+    border:5px solid #FA4C4C;
+    border-left:0px;
+    left:66px;
+    bottom:150px
+}
+.concatItemLeft::after{
+    content:'';
+    display: block;
+    position: relative;
+    width: 4px;
+    height: 110px;
+    border:5px solid #FA4C4C;
+    border-right:0px;
+    right:14px;
+    bottom:150px
+}
+.unactive.concatItemRight::after,.unactive.concatItemLeft::after{
+    border-color: #eee;
+}
+.signBtn{
+    margin-top:120px;
+    width:100%;
+}
+.signBtn .btn{
+    width:80%;
+    margin:0 auto;
+    height: 80px;
+    line-height: 80px;
+    background-color: #FA4C4C;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 36px;
+}
