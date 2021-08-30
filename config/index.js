@@ -9,7 +9,18 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: `dist/${process.env.TARO_ENV}`,
-  plugins: [],
+  plugins: ['@mps/mps-taro-plugin/dist/MpsRuntimeTaroPlugin',  
+            ['@mps/mps-taro-plugin/dist/MpsBusinessTaroPlugin', {  
+                commonChunks: ['app'],   
+                addCommonStyle: true,  
+              }
+            ],
+            ['@mps/mps-taro-plugin/dist/MpsExportTaroPlugin',{
+              entry:{
+                'options/index':['./options/index.js']
+              }
+            }]
+  ],
   defineConstants: {
   },
   copy: {
@@ -40,7 +51,34 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain(chain,webpack){
+      chain.merge({
+        entry:{
+          'options/index':['./options/index.js']
+        }
+      })
     }
+    // webpackChain(chain,webpack){
+    //   chain.optimization.splitChunks({
+    //     cacheGroups: {
+    //         default: false,
+    //         vendors: {
+    //             name: 'chunk-vendors',
+    //             test(module) {
+    //                 const resource = module.resource;
+    //                 if (resource && resource.endsWith('.js')&&resource.includes('/options/')) {
+    //                   console.log('resource-----',resource)
+    //                     return true;
+    //                 }
+    //                 return false;
+    //             },
+    //             chunks: 'all',
+    //             filename: '[name].bundle.js'
+    //         }
+    //     }
+    //   });
+    // }
   },
   h5: {
     publicPath: '/',
@@ -59,7 +97,14 @@ const config = {
         }
       }
     },
-    esnextModules: ['taro-ui']
+    esnextModules: ['taro-ui'],
+    // webpackChain(chain,webpack){
+    //   chain.entry('index')
+    //          .add('./src/options/index.js')
+    //          .end()
+    //       .output
+    //         .filename('[name].bundle.js')
+    // }
   }
 }
 

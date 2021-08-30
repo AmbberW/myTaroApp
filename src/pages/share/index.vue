@@ -73,6 +73,7 @@ import Share from "./share.json";
 import style from "./index.module.css";
 import Clipboard from "clipboard";
 import Taro from "@tarojs/taro";
+import {shareConfig} from '.././../options/index'
 export default {
     name: "Share",
     props: {
@@ -84,12 +85,10 @@ export default {
     data() {
         return {
             style,
-            titel: "分享组件标题",
-            subTitle: "--副标题--",
             list: [],
             // btnType:'',
-            shareUrl: "https://baidu.com",
             clipboard: "",
+            ...shareConfig.data
         };
     },
     computed: {
@@ -100,7 +99,13 @@ export default {
         },
     },
     created() {
+      if(shareConfig.getShareList.func){
+        shareConfig.getShareList.func().then(result=>{
+          this.list = result[shareConfig.getShareList.key];
+        })
+      }else{
         this.list = Share.list.concat(Share.list);
+      }
         // this.btnType = process.env.TARO_ENV==='h5'&&this.shareAllow?'':'share';
     },
     methods: {

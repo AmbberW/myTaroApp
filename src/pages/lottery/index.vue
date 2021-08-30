@@ -2,10 +2,10 @@
   <view :class="style.container">
     <view :class="style.content">
       <view :class="style.title">
-        抽奖标题
+        {{ title }}
       </view>
       <view :class="style.subtitle">
-        --抽奖副标题--
+        {{ subTitle }}
       </view>
       <view :class="style.subtitle">
         {{ rules }}
@@ -103,6 +103,7 @@ import style from "./index.module.css";
 import lotteryJson from "./lottery.json";
 import Taro from "@tarojs/taro";
 import { checkAuthority } from "../../utils/checkAuthority.js";
+import {lotteryConfig} from '../../options/index'
 export default {
     name: "Lottery",
     data() {
@@ -114,11 +115,12 @@ export default {
             showPrize: false,
             animationExcute: false,
             prize: "",
-            fixedInterval: 1, //0代表抽奖次数不受每天控制，1代表每天，7代表每周
-            num: 3, //每天的抽奖次数
-            total: 20, //全部的抽奖机会
-            duration: ["2021-8-1", "2021-8-30"], //活动时间
+            // fixedInterval: 1, //0代表抽奖次数不受每天控制，1代表每天，7代表每周
+            // num: 3, //每天的抽奖次数
+            // total: 20, //全部的抽奖机会
+            // duration: ["2021-8-1", "2021-8-30"], //活动时间
             disable: true,
+            ...lotteryConfig.data
         };
     },
     computed: {
@@ -133,9 +135,16 @@ export default {
         },
     },
     created() {
-        this.itemList = lotteryJson.itemList;
+      if(lotteryConfig.getPrizeList.func){
+        lotteryConfig.getPrizeList.func().then(result=>{
+          this.itemList = result[signConfig.getResultfulDay.key]
         this.dealAnimationList();
         this.disable = !checkAuthority.call(this);
+        })
+      }else{
+        this.itemList = lotteryJson.itemList;
+        this.dealAnimationList();
+        this.disable = !checkAuthority.call(this);}
     },
     methods: {
         //奖品数据处理

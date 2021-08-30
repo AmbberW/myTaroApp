@@ -71,20 +71,26 @@
 </template>
 <script>
 import style from './index.module.css'
+import {signConfig} from '../../options/index'
 export default {
     data(){
         return {
             style,
-            title:'签到标题',
-            subTitle:'--连续签到满7天可获现金奖励--',
-            resultfulDay:6,
-            totalDay:12,
-            splitNum:5,
-            totalList:[]
+            resultfulDay:0,
+            totalList:[],
+            ...signConfig.data
         }
     },
     created(){
-        this.totalList = this.getClassName()
+        if(signConfig.getResultfulDay.func){
+          signConfig.getResultfulDay.func().then(result=>{
+            this.resultfulDay = result[signConfig.getResultfulDay.key]
+            this.totalList = this.getClassName()
+          })
+        }else{
+          this.resultfulDay = signConfig.getResultfulDay.defaultVal||0;
+          this.totalList = this.getClassName()
+        }
     },
     methods:{
         getClassName(){
@@ -127,8 +133,17 @@ export default {
             })
         },
         handleSignIn(){
+          if(signConfig.handleSignTap.func){
+            signConfig.handleSignTap.func().then(result=>{
+              if(result[signConfig.handleSignTap.key]){
+                this.resultfulDay++;
+              this.totalList = this.getClassName()
+              }
+            })
+          }else{
             this.resultfulDay++;
-            this.totalList = this.getClassName()
+              this.totalList = this.getClassName()
+          }
         }
     }
     

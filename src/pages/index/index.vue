@@ -1,6 +1,6 @@
 <template>
   <view class="index">
-    <button
+    <!-- <button
       type="primary"
       data-router="Lottery"
       @tap="handleRoute"
@@ -20,7 +20,8 @@
       @tap="handleRoute"
     >
       签到
-    </button>
+    </button> -->
+    
     <component
       :is="currentTabComponent"
       v-if="currentTabComponent"
@@ -33,23 +34,35 @@ import "./index.scss";
 import Lottery from "../lottery/index";
 import Share from "../share/index";
 import SignIn from '../signIn/index';
+import * as Config from '../../options/index'
+// import MapMini from '../map/index.vue'
 
 
 export default {
     components: {
         Lottery: Lottery,
         Share:Share,
-        SignIn:SignIn
+        SignIn:SignIn,
+        // MapMini:MapMini,
     },
     data() {
         return {
             msg: "",
-            currentTabComponent:''
+            // currentTabComponent:'',
+            Config,
         };
     },
-    created() {
-        console.log("sjkghdjghs");
+    computed:{
+      currentTabComponent(){
+        console.log(this.Config.currentTabComponent)
+        return this.Config.currentTabComponent
+      }
     },
+    // created() {
+    //     console.log("sjkghdjghs");
+    //     this.Config.signInit({a:1})
+    //     console.log(this.Config.currentTabComponent)
+    // },
     methods:{
         handleRoute(e){
             console.log(e.target.dataset.router)
